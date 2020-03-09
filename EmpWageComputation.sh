@@ -1,10 +1,12 @@
 #!/bin/bash -x
 IS_FULL_TIME=1
 IS_PART_TIME=2
+TOTAL_WORKING_HRS=100
+WORKING_DAY_PER_MONTH=20
 EMP_WAGE_PER_HR=20
 totalWorkingDays=0
 totalEmployeeHrs=0
-while (( $totalWorkingDays < 20 ))
+while (( $totalWorkingDays < WORKING_DAY_PER_MONTH && totalEmployeeHrs < $TOTAL_WORKING_HRS ))
 do
 	((totalWorkingDays++))
 	empCheck=$((RANDOM%3))
@@ -19,7 +21,9 @@ do
 		;;
 	esac
 	totalEmployeeHrs=$(($totalEmployeeHrs+$empHrs));
+	dailyWage=$(( $empHrs*$EMP_WAGE_PER_HR ))
+	echo $dailyWage
 done
-dailyWage=$(( $totalEmployeeHrs*$EMP_WAGE_PER_HR ));
-echo $dailyWage
+totalSalary=$(( $totalEmployeeHrs*$EMP_WAGE_PER_HR ));
+echo $totalSalary
 
