@@ -1,19 +1,13 @@
-  
 #!/bin/bash -x
-isFullTime=1
-isPartTime=2
+isPresent=1
 EMP_WAGE_PER_HR=20
-empCheck=$((RANDOM%3))
-case $empCheck in $isFullTime )
+empCheck=$((RANDOM%2))
+if [ $empCheck -eq $isPresent ]
+then
 	empHrs=8
-	;;
-	$isPartTime )
-	empHrs=4
-	;;
-	* )
+else
 	empHrs=0
-	;;
-esac
+fi
 dailyWage=$(( $empHrs*$EMP_WAGE_PER_HR ))
 echo $dailyWage
 
