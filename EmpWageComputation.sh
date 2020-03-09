@@ -15,3 +15,4 @@ fi
 dailyWage=$(( $empHrs*$EMP_WAGE_PER_HR ))
 echo $dailyWage
 
+
