@@ -1,10 +1,14 @@
 #!/bin/bash -x
-isPresent=1
+isFullTime=1
+isPartTime=2
 EMP_WAGE_PER_HR=20
-empCheck=$((RANDOM%2))
-if [ $empCheck -eq $isPresent ]
+empCheck=$((RANDOM%3))
+if [ $empCheck -eq $isFullTime ]
 then
 	empHrs=8
+elif [ $empCheck -eq $isPartTime ]
+then
+	empHrs=4
 else
 	empHrs=0
 fi
